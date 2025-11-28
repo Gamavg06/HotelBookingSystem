@@ -1,0 +1,19 @@
+@page
+@model HotelReservation.Pages.Admin.Reservations.DeleteModel
+
+<h2>Eliminar Reservación</h2>
+
+<div class="alert alert-danger">
+    ¿Seguro que deseas eliminar esta reservación?
+</div>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Cliente:</strong> @Model.Reservation.GuestName</li>
+    <li class="list-group-item"><strong>Email:</strong> @Model.Reservation.Email</li>
+    <li class="list-group-item"><strong>Total:</strong> $@Model.Reservation.Total</li>
+</ul>
+
+<form method="post">
+    <button class="btn btn-danger">Eliminar</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

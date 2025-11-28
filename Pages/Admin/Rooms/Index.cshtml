@@ -1,0 +1,30 @@
+@page
+@model HotelReservation.Pages.Admin.Rooms.IndexModel
+
+<h2>Administrar Habitaciones</h2>
+<a asp-page="Create" class="btn btn-success mb-3">Agregar nueva habitación</a>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model.RoomList)
+        {
+            <tr>
+                <td><img src="@room.Image" width="120" /></td>
+                <td>@room.Name</td>
+                <td>$@room.PricePerNight</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@room.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-page="Delete" asp-route-id="@room.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,26 @@
+@page "{id:guid}"
+@model HotelReservation.Pages.Admin.Reservations.DetailsModel
+
+<h2>Detalles de la Reservación</h2>
+
+<div class="card p-4 shadow">
+    <p><strong>ID:</strong> @Model.Reservation.Id</p>
+    <p><strong>Habitación:</strong> @Model.Reservation.Room?.Name</p>
+    <p><strong>Cliente:</strong> @Model.Reservation.GuestName</p>
+    <p><strong>Email:</strong> @Model.Reservation.Email</p>
+    <p><strong>CheckIn:</strong> @Model.Reservation.CheckIn</p>
+    <p><strong>CheckOut:</strong> @Model.Reservation.CheckOut</p>
+    <p><strong>Total:</strong> $@Model.Reservation.Total</p>
+    <p><strong>Pagado:</strong> 
+        @if (Model.Reservation.Paid)
+        {
+            <span class="badge bg-success">Sí</span>
+        }
+        else
+        {
+            <span class="badge bg-danger">No</span>
+        }
+    </p>
+
+    <a asp-page="./Index" class="btn btn-secondary mt-3">Volver</a>
+</div>

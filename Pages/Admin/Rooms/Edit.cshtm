@@ -1,0 +1,30 @@
+@page "{id}"
+@model HotelReservation.Pages.Admin.Rooms.EditModel
+
+<h2>Editar Habitación</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Room.Id" />
+
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input asp-for="Room.Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Descripción</label>
+        <textarea asp-for="Room.Description" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label>Precio</label>
+        <input asp-for="Room.PricePerNight" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Imagen</label>
+        <input asp-for="Room.Image" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary">Guardar cambios</button>
+</form>

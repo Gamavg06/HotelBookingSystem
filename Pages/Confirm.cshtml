@@ -1,0 +1,20 @@
+@page
+@model HotelReservation.Pages.ConfirmModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="container mt-5" style="max-width:800px">
+    <div class="alert alert-success">
+        <h3>¡Reserva confirmada!</h3>
+        <p>Hemos procesado tu pago. Se ha enviado un correo con los detalles.</p>
+    </div>
+
+    <div class="card p-3">
+        <h4>Resumen de la reserva</h4>
+        <p><strong>Habitación:</strong> @Model.Room?.Name</p>
+        <p><strong>Precio por noche:</strong> $@Model.Room?.PricePerNight</p>
+        <p><strong>Método de pago:</strong> @Model.PaymentMethod</p>
+        <p><strong>Titular tarjeta / PayPal:</strong> @Model.Titular</p>
+    </div>
+
+    <a asp-page="/Index" class="btn btn-gold mt-4">Volver al inicio</a>
+</div>

@@ -1,0 +1,34 @@
+@page
+@model HotelReservation.Pages.ReservationModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2>Reservar habitación</h2>
+
+<div class="card p-3 mb-3">
+    <h4>@Model.SelectedRoom.Name</h4>
+    <img src="@Model.SelectedRoom.Image" width="300" />
+    <p>@Model.SelectedRoom.Description</p>
+    <p><b>Precio por noche:</b> $@Model.SelectedRoom.PricePerNight</p>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="SelectedRoom.Id" />
+
+    <div class="mb-3">
+        <label>Fecha ingreso</label>
+        <input asp-for="Input.DateIn" type="date" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Fecha salida</label>
+        <input asp-for="Input.DateOut" type="date" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label>Huéspedes</label>
+        <input asp-for="Input.Guests" type="number" class="form-control" required min="1" />
+    </div>
+
+    <button type="submit" class="btn btn-gold">Continuar al pago</button>
+</form>
+ 

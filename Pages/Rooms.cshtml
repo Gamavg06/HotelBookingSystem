@@ -1,0 +1,51 @@
+@page
+@model HotelReservation.Pages.RoomsModel
+@{
+    ViewData["Title"] = "Habitaciones";
+}
+
+<h2 class="text-center mb-4">Habitaciones disponibles</h2>
+
+<div class="container">
+    @foreach (var room in Model.Rooms)
+    {
+        <div class="room-container mb-5 shadow-lg" style="border-radius: 16px; overflow: hidden;">
+
+            <div class="row g-0">
+
+                <!-- Lado izquierdo: IMAGEN ocupando 50% -->
+                <div class="col-md-6">
+                    <img src="@room.Image"
+                         alt="@room.Name"
+                         class="img-fluid"
+                         style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
+
+                <!-- Lado derecho: DETALLES -->
+                <div class="col-md-6 d-flex flex-column justify-content-center p-4 bg-light">
+
+                    <h2 class="fw-bold">@room.Name</h2>
+
+                    <p class="text-muted mt-2" style="font-size: 15px;">
+                        @room.Description
+                    </p>
+
+                    <h4 class="fw-bold mt-3">
+                        Precio por noche: 
+                        <span class="text-success">$@room.PricePerNight</span>
+                    </h4>
+
+                    <div class="mt-4">
+                        <a class="btn btn-gold btn-lg px-4"
+                           href="/Reservation?roomId=@room.Id">
+                            Reservar habitación
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+</div>

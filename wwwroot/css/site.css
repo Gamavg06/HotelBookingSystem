@@ -1,0 +1,135 @@
+/* ------------------ BANNER MODERNO ------------------ */
+
+.banner-box {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    background: #ffffff; /* Fondo blanco */
+    border: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.10);
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+/* ------------------ BOTONES DORADOS ------------------ */
+
+.btn-gold {
+    background-color: #c9a227;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-gold:hover {
+    background-color: #b08e20;
+    color: white;
+}
+
+.btn-gold-outline {
+    color: #c9a227;
+    border: 2px solid #c9a227;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.btn-gold-outline:hover {
+    background-color: #c9a227;
+    color: white;
+}
+
+/* ------------------ NAVBAR ------------------ */
+
+.site-header .navbar {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    min-height: 46px;
+}
+
+.site-header .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.logo {
+    height: 28px !important;
+}
+
+.brand-text {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.nav-link {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+/* ------------------ ACCESS (TU PÁGINA DE LOGIN) ------------------ */
+
+.full-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 25px;
+}
+
+/* No se usa como fondo */
+.access-bg {
+    width: auto;
+    height: auto;
+    background: none;
+    position: relative;
+}
+
+/* Recuadro blanco para “Bienvenido” */
+.access-box {
+    background:#0f0f0f71;
+    width: 80%;
+    max-width: 300px;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #5e5e5eb7;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+}
+
+/* Botones del cuadro */
+.btn-access {
+    background-color: #c9a227;
+    color: white;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-access:hover {
+    background-color: #b08e20;
+}
+
+.btn-access-outline {
+    background-color: transparent;
+    border: 2px solid #c9a227;
+    color: #c9a227;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-access-outline:hover {
+    background-color: rgba(0,0,0,0.05);
+}
