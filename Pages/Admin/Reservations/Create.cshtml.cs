@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using HotelReservation.Data;
 using HotelReservation.Models;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelReservation.Pages.Admin.Reservations
 {
@@ -17,9 +18,9 @@ namespace HotelReservation.Pages.Admin.Reservations
         }
 
         [BindProperty]
-        public Reservation Reservation { get; set; }
+        public Reservation Reservation { get; set; } = new Reservation();
 
-        public SelectList RoomList { get; set; }
+        public SelectList RoomList { get; set; } = default!;
 
         public void OnGet()
         {

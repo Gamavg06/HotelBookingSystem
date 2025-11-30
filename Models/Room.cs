@@ -7,5 +7,7 @@ namespace HotelReservation.Models
         public string Description { get; set; } = string.Empty;
         public decimal PricePerNight { get; set; }
         public string Image { get; set; } = string.Empty;
+
+        public List<Reservation> Reservations { get; set; } = new();
     }
 }

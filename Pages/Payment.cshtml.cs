@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore; // ¡NUEVO! Necesario para FirstOrDefaultAsync
 using HotelReservation.Data;
 using HotelReservation.Models;
 using HotelReservation.Services;
@@ -8,7 +9,8 @@ namespace HotelReservation.Pages
 {
     public class PaymentModel : PageModel
     {
-        private readonly InMemoryStore _store;
+        // CAMBIO 1: Reemplazar InMemoryStore por HotelDbContext
+        private readonly HotelDbContext _context; 
         private readonly IEmailService _emailService;
         private readonly IConfiguration _config;
 
@@ -17,9 +19,10 @@ namespace HotelReservation.Pages
         [BindProperty]
         public PaymentInput Input { get; set; } = new();
 
-        public PaymentModel(InMemoryStore store, IEmailService emailService, IConfiguration config)
+        // CAMBIO 2: Actualizar el constructor
+        public PaymentModel(HotelDbContext context, IEmailService emailService, IConfiguration config)
         {
-            _store = store;
+            _context = context;
             _emailService = emailService;
             _config = config;
         }
@@ -36,7 +39,8 @@ namespace HotelReservation.Pages
             public string PayPalEmail { get; set; } = string.Empty;
         }
 
-        public IActionResult OnGet()
+        // CAMBIO 3: Hacer el método asíncrono
+        public async Task<IActionResult> OnGetAsync() 
         {
             var roomIdStr = HttpContext.Session.GetString("RoomId");
             if (!int.TryParse(roomIdStr, out var roomId))
@@ -45,7 +49,9 @@ namespace HotelReservation.Pages
                 return RedirectToPage("/Rooms");
             }
 
-            SelectedRoom = _store.Rooms.FirstOrDefault(r => r.Id == roomId);
+            // CAMBIO 4: Usar FirstOrDefaultAsync
+            SelectedRoom = await _context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId); 
+            
             if (SelectedRoom == null)
             {
                 TempData["ErrorMessage"] = "Habitación no encontrada.";
@@ -55,7 +61,8 @@ namespace HotelReservation.Pages
             return Page();
         }
 
-        public async Task<IActionResult> OnPost()
+        // CAMBIO 5: Hacer el método asíncrono
+        public async Task<IActionResult> OnPostAsync()
         {
             var roomIdStr = HttpContext.Session.GetString("RoomId");
             if (!int.TryParse(roomIdStr, out var roomId))
@@ -64,7 +71,9 @@ namespace HotelReservation.Pages
                 return RedirectToPage("/Rooms");
             }
 
-            SelectedRoom = _store.Rooms.FirstOrDefault(r => r.Id == roomId);
+            // CAMBIO 6: Usar FirstOrDefaultAsync
+            SelectedRoom = await _context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
+            
             if (SelectedRoom == null)
             {
                 TempData["ErrorMessage"] = "Habitación no encontrada.";
@@ -167,4 +176,4 @@ namespace HotelReservation.Pages
             return RedirectToPage("/Confirm");
         }
     }
-}
+}  

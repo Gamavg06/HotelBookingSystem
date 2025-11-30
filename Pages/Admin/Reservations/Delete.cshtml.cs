@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using HotelReservation.Data;
 using HotelReservation.Models;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelReservation.Pages.Admin.Reservations
 {
@@ -16,11 +17,13 @@ namespace HotelReservation.Pages.Admin.Reservations
         }
 
         [BindProperty]
-        public Reservation Reservation { get; set; }
+        public Reservation Reservation { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(Guid id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            Reservation = await _db.Reservations.FindAsync(id);
+            Reservation = await _db.Reservations
+                .Include(r => r.Room)
+                .FirstOrDefaultAsync(r => r.Id == id);
 
             if (Reservation == null)
                 return RedirectToPage("Index");
@@ -28,14 +31,14 @@ namespace HotelReservation.Pages.Admin.Reservations
             return Page();
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
-            var res = _db.Reservations.Find(Reservation.Id);
+            var res = await _db.Reservations.FindAsync(Reservation.Id);
 
             if (res != null)
             {
                 _db.Reservations.Remove(res);
-                _db.SaveChanges();
+                await _db.SaveChangesAsync();
             }
 
             return RedirectToPage("Index");

@@ -15,9 +15,9 @@ namespace HotelReservation.Pages.Admin.Reservations
             _context = context;
         }
 
-        public Reservation Reservation { get; set; }
+        public Reservation Reservation { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(Guid id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             Reservation = await _context.Reservations
                 .Include(r => r.Room)

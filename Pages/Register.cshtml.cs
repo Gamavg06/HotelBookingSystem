@@ -61,7 +61,7 @@ namespace HotelReservation.Pages
             _db.Users.Add(user);
             await _db.SaveChangesAsync();
 
-            return RedirectToPage("/Login");
+            return RedirectToPage("Login");
         }
     }
 }

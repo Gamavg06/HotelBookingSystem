@@ -4,12 +4,9 @@ namespace HotelReservation.Models
 {
     public class Reservation
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public int Id { get; set; }  
 
-        // Foreign Key
         public int RoomId { get; set; }
-
-        // Navigation Property — ESTA ES LA QUE TE FALTABA
         public Room Room { get; set; }
 
         public string GuestName { get; set; } = string.Empty;

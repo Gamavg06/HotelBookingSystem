@@ -1,0 +1,23 @@
+@page
+@model HotelReservation.Pages.AdminModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Panel de Administración";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center text-gold">Panel de Administración</h2>
+    <p class="text-center">Bienvenido, administrador. Aquí puedes gestionar el sistema de reservas.</p>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <a asp-page="/Rooms" class="btn btn-gold w-100">Gestionar Habitaciones</a>
+        </div>
+        <div class="col-md-4">
+            <a asp-page="/Reservation" class="btn btn-gold w-100">Ver Reservas</a>
+        </div>
+        <div class="col-md-4">
+            <a asp-page="/Users" class="btn btn-gold w-100">Administrar Usuarios</a>
+        </div>
+    </div>
+</div>

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace HotelReservationApp.Services
+namespace HotelReservation.Services
 {
     public interface IEmailService
     {

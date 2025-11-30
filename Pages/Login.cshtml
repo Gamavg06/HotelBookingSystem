@@ -16,30 +16,36 @@
 
 <body class="bg-light">
 
-    <div class="container mt-5" style="max-width: 500px;">
-        <h2 class="text-center mb-4">Iniciar sesión</h2>
+    <div class="full-center access-bg">
+        <!-- Banner -->
+        <div class="banner-box">
+            <img src="/images/logo.png" alt="Logo" class="banner-image" />
+        </div>
 
-        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-        {
-            <div class="alert alert-danger">@Model.ErrorMessage</div>
-        }
+        <!-- Recuadro de Bienvenido -->
+        <div class="access-box text-center">
+            <h3 class="mb-3">Bienvenido</h3>
 
-        <form method="post">
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div class="alert alert-danger">@Model.ErrorMessage</div>
+            }
 
-            <div class="mb-3">
-                <label>Email</label>
-                <input asp-for="Input.Email" class="form-control" />
+            <form method="post">
+                <div class="mb-3">
+                    <input asp-for="Input.Email" class="form-control" placeholder="Correo electrónico" />
+                </div>
+                <div class="mb-3">
+                    <input asp-for="Input.Password" type="password" class="form-control" placeholder="Contraseña" />
+                </div>
+                <button type="submit" class="btn-access w-100">Entrar</button>
+            </form>
+
+            <div class="mt-3">
+                <a asp-page="/Register" class="btn-access-outline w-100">Registrarse</a>
             </div>
-
-            <div class="mb-3">
-                <label>Contraseña</label>
-                <input asp-for="Input.Password" type="password" class="form-control" />
-            </div>
-
-            <button class="btn btn-gold w-100">Entrar</button>
-
-        </form>
-
+        </div>
     </div>
+
 </body>
 </html>

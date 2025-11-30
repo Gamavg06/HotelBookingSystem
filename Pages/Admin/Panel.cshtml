@@ -6,18 +6,14 @@
 
 <h2 class="mb-4">Panel de Administración</h2>
 
-@if (User.FindFirst("role")?.Value != "Admin")
-{
-    <h3 class="text-danger">Acceso denegado</h3>
-    <p>No tienes permisos para ver este panel.</p>
-    return;
-}
-
 <div class="list-group">
     <a asp-page="/Admin/Rooms/Index" class="list-group-item list-group-item-action">
         Administrar Habitaciones
     </a>
     <a asp-page="/Admin/Reservations/Index" class="list-group-item list-group-item-action">
         Ver Reservaciones
+    </a>
+    <a asp-page="/Admin/Users/Index" class="list-group-item list-group-item-action">
+        Administrar Usuarios
     </a>
 </div>

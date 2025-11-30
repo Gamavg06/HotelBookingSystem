@@ -47,12 +47,14 @@ namespace HotelReservation.Pages
                 return Page();
             }
 
+            // Si el correo es el del admin, forzar rol "Admin"
+            var role = user.Role; // 👈 usa el valor real guardado en la base
+
             // Crear lista de Claims
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, $"{user.Nombre} {user.Apellido}"),
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Role, user.Role) 
+                new Claim(ClaimTypes.Role, user.Role)
             };
 
             var identity = new ClaimsIdentity(claims, "AuthCookie");
@@ -61,7 +63,11 @@ namespace HotelReservation.Pages
             // Guardar cookie de autenticación
             await HttpContext.SignInAsync("AuthCookie", principal);
 
-            return RedirectToPage("/Index");
+            // Redirigir según rol
+            if (role == "Admin")
+                return RedirectToPage("/Admin/Panel");  // 👈 tu página de administración
+            else
+                return RedirectToPage("/Index");  // 👈 usuarios normales
         }
     }
 }

@@ -60,7 +60,7 @@ namespace HotelReservation.Data
                     Email = "hotelbookingsystems@gmail.com",
                     Password = "Admin",
                     Edad = 30,
-                    Celular = "0000000000",
+                    Celular = "2761095688",
                     Nacionalidad = "MX",
                     Role = "Admin"
                 }
@@ -82,6 +82,16 @@ namespace HotelReservation.Data
                 .HasMaxLength(500);
 
             // -------------------------
+            // SEED DE HABITACIONES
+            // -------------------------
+            modelBuilder.Entity<Room>().HasData(
+                new Room { Id = 1, Name = "Habitación Estándar", Description = "Cama doble, 20m².", PricePerNight = 340, Image = "/images/room1.png" },
+                new Room { Id = 2, Name = "Habitación Superior", Description = "Cama king, balcón.", PricePerNight = 350, Image = "/images/room2.png" },
+                new Room { Id = 3, Name = "Suite", Description = "Sala, cama king, vistas.", PricePerNight = 2500, Image = "/images/room3.png" },
+                new Room { Id = 4, Name = "Habitación Familiar", Description = "Espaciosa, 2 camas.", PricePerNight = 500, Image = "/images/room4.png" }
+            );
+
+            // -------------------------
             // CONFIGURACIÓN DE RESERVATION
             // -------------------------
             modelBuilder.Entity<Reservation>()
@@ -96,11 +106,11 @@ namespace HotelReservation.Data
                 .Property(res => res.Email)
                 .IsRequired();
 
-            // Relación Room (1) → (N) Reservations
+            // Relación Room (1) → (N) Reservations - AHORA CORREGIDA
             modelBuilder.Entity<Reservation>()
-                .HasOne<Room>()
-                .WithMany()
-                .HasForeignKey(res => res.RoomId)
+                .HasOne(res => res.Room)          // Usa la propiedad de navegación en Reservation
+                .WithMany(r => r.Reservations)    // Usa la colección de navegación en Room
+                .HasForeignKey(res => res.RoomId) // Usa la clave foránea real
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

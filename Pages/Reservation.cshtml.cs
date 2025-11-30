@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore; // ¡NUEVO! Necesario para FirstOrDefaultAsync
 using HotelReservation.Data;
 using HotelReservation.Models;
 
@@ -7,11 +8,13 @@ namespace HotelReservation.Pages
 {
     public class ReservationModel : PageModel
     {
-        private readonly InMemoryStore _store;
+        // CAMBIO 1: Reemplazar InMemoryStore por HotelDbContext
+        private readonly HotelDbContext _context;
 
-        public ReservationModel(InMemoryStore store)
+        // CAMBIO 2: Actualizar el constructor
+        public ReservationModel(HotelDbContext context)
         {
-            _store = store;
+            _context = context;
         }
 
         public Room SelectedRoom { get; set; }
@@ -26,9 +29,11 @@ namespace HotelReservation.Pages
             public int Guests { get; set; }
         }
 
-        public IActionResult OnGet(int roomId)
+        // CAMBIO 3: Hacer el método asíncrono
+        public async Task<IActionResult> OnGetAsync(int roomId)
         {
-            SelectedRoom = _store.Rooms.FirstOrDefault(r => r.Id == roomId);
+            // CAMBIO 4: Usar FirstOrDefaultAsync
+            SelectedRoom = await _context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
 
             if (SelectedRoom == null)
             {
@@ -38,9 +43,11 @@ namespace HotelReservation.Pages
             return Page();
         }
 
-        public IActionResult OnPost(int roomId)
+        // CAMBIO 5: Hacer el método asíncrono
+        public async Task<IActionResult> OnPostAsync(int roomId)
         {
-            SelectedRoom = _store.Rooms.FirstOrDefault(r => r.Id == roomId);
+            // CAMBIO 6: Usar FirstOrDefaultAsync
+            SelectedRoom = await _context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
 
             if (SelectedRoom == null)
             {

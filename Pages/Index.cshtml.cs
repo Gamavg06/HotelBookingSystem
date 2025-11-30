@@ -1,23 +1,26 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using HotelReservation.Data;
 using HotelReservation.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HotelReservation.Pages
 {
+    [Authorize]   // 🔒 Requiere login
     public class IndexModel : PageModel
     {
-        private readonly InMemoryStore _store;
+        private readonly HotelDbContext _db;
 
         public List<Room> Rooms { get; set; } = new();
 
-        public IndexModel(InMemoryStore store)
+        public IndexModel(HotelDbContext db)
         {
-            _store = store;
+            _db = db;
         }
 
         public void OnGet()
         {
-            Rooms = _store.Rooms;
+            Rooms = _db.Rooms.ToList();
         }
     }
 }
