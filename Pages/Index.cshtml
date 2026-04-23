@@ -1,7 +1,7 @@
 @page
 @model HotelReservation.Pages.IndexModel
 @{
-    ViewData["Title"] = "Inicio";
+    ViewData["Title"] = "Start Page";
 }
 
 <div class="hero container py-5 mb-5 d-flex align-items-center">
@@ -13,9 +13,9 @@
     </div>
 
     <div class="hero-right text-end flex-grow-1">
-        <h1 class="display-6 fw-bold text-dark">Bienvenido a Hotel Reserva</h1>
-        <p class="lead text-muted">Reserva tu estancia con facilidad y comodidad.</p>
-        <a asp-page="/Rooms" class="btn btn-gold btn-lg px-4 mt-2">Ver habitaciones</a>
+        <h1 class="display-6 fw-bold text-dark">Welcome to Hotel Booking System </h1>
+        <p class="lead text-muted">Book your stay with ease and comfort.</p>
+        <a asp-page="/Rooms" class="btn btn-gold btn-lg px-4 mt-2">View Rooms</a>
     </div>
 
 </div>
@@ -33,7 +33,7 @@
                         <a asp-page="/Reservation" asp-route-roomId="@r.Id" class="btn btn-sm btn-gold-outline">
                             Reservar
                         </a>
-                        <small class="text-muted">$@r.PricePerNight.ToString("0.00") / noche</small>
+                        <small class="text-muted">$@r.PricePerNight.ToString("0.00") / night</small>
                     </div>
                 </div>
             </div>

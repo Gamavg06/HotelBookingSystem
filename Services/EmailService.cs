@@ -39,7 +39,7 @@ namespace HotelReservation.Services
 
             if (string.IsNullOrWhiteSpace(fromEmail) || string.IsNullOrWhiteSpace(password))
             {
-                _log.LogWarning("EmailService: credenciales no configuradas. No se enviará el correo.");
+                _log.LogWarning("EmailService: credentials not configured. Email will not be sent.");
                 
                 return;
             }
@@ -60,7 +60,7 @@ namespace HotelReservation.Services
             mail.To.Add(to);
 
             await client.SendMailAsync(mail);
-            _log.LogInformation("EmailService: correo enviado a {to}", to);
+            _log.LogInformation("EmailService: email sent to {to}", to);
         }
     }
 }

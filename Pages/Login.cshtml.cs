@@ -53,7 +53,7 @@ namespace HotelReservation.Pages
             // Crear lista de Claims
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, $"{user.Nombre} {user.Apellido}"),
+                new Claim(ClaimTypes.Name, $"{user.Name} {user.LastName}"),
                 new Claim(ClaimTypes.Role, user.Role)
             };
 

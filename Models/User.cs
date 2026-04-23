@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace HotelReservation.Models
@@ -8,17 +9,20 @@ namespace HotelReservation.Models
         public int Id { get; set; }   // Clave primaria necesaria para EF Core
 
         // Datos del usuario
-        public required string Nombre { get; set; }
-        public required string Apellido { get; set; }
-        public int Edad { get; set; }
-        public required string Celular { get; set; }
+        public required string Name { get; set; }
+        public required string LastName { get; set; }
+        public int Age { get; set; }
+        public required string Telephone { get; set; }
         public required string Email { get; set; }
-        public required string Nacionalidad { get; set; }
+        public required string Nationality { get; set; }
 
         // Seguridad
         public required string Password { get; set; }
 
         // Rol para permisos
         public string Role { get; set; } = "User";
+
+        // 👇 Navegación hacia las reservaciones
+        public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
     }
 }

@@ -15,20 +15,20 @@
     <input type="hidden" asp-for="SelectedRoom.Id" />
 
     <div class="mb-3">
-        <label>Fecha ingreso</label>
+        <label>Date of arrival</label>
         <input asp-for="Input.DateIn" type="date" class="form-control" required />
     </div>
 
     <div class="mb-3">
-        <label>Fecha salida</label>
+        <label>Date of departure</label>
         <input asp-for="Input.DateOut" type="date" class="form-control" required />
     </div>
 
     <div class="mb-3">
-        <label>Huéspedes</label>
+        <label>Guests</label>
         <input asp-for="Input.Guests" type="number" class="form-control" required min="1" />
     </div>
 
-    <button type="submit" class="btn btn-gold">Continuar al pago</button>
+    <button type="submit" class="btn btn-gold">Continue to payment</button>
 </form>
  

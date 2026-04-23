@@ -15,111 +15,113 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v9.0
 build_property.RootNamespace = HotelReservation
 build_property.RootNamespace = HotelReservation
-build_property.ProjectDir = D:\prueba final\hotel_final_project\
+build_property.ProjectDir = D:\hotel_final_project\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\prueba final\hotel_final_project
+build_property.MSBuildProjectDirectory = D:\hotel_final_project
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/prueba final/hotel_final_project/Pages/Access.cshtml]
+[D:/hotel_final_project/Pages/Access.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/AccessDenied.cshtml]
+[D:/hotel_final_project/Pages/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjZXNzRGVuaWVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Admin.cshtml]
+[D:/hotel_final_project/Pages/Admin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Admin/Panel.cshtml]
+[D:/hotel_final_project/Pages/Admin/Panel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUGFuZWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Admin/Reservations/Create.cshtml]
+[D:/hotel_final_project/Pages/Admin/Reservations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUmVzZXJ2YXRpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Admin/Reservations/Delete.cshtml]
+[D:/hotel_final_project/Pages/Admin/Reservations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUmVzZXJ2YXRpb25zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Admin/Reservations/Details.cshtml]
+[D:/hotel_final_project/Pages/Admin/Reservations/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUmVzZXJ2YXRpb25zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Admin/Reservations/Edit.cshtml]
+[D:/hotel_final_project/Pages/Admin/Reservations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUmVzZXJ2YXRpb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Admin/Reservations/Index.cshtml]
+[D:/hotel_final_project/Pages/Admin/Reservations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUmVzZXJ2YXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Admin/Rooms/Create.cshtml]
+[D:/hotel_final_project/Pages/Admin/Rooms/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9vbXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Admin/Rooms/Delete.cshtml]
+[D:/hotel_final_project/Pages/Admin/Rooms/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9vbXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Admin/Rooms/Index.cshtml]
+[D:/hotel_final_project/Pages/Admin/Rooms/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9vbXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Confirm.cshtml]
+[D:/hotel_final_project/Pages/Confirm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uZmlybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Error.cshtml]
+[D:/hotel_final_project/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Index.cshtml]
+[D:/hotel_final_project/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Login.cshtml]
+[D:/hotel_final_project/Pages/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Logout.cshtml]
+[D:/hotel_final_project/Pages/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Payment.cshtml]
+[D:/hotel_final_project/Pages/Payment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF5bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Register.cshtml]
+[D:/hotel_final_project/Pages/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Reservation.cshtml]
+[D:/hotel_final_project/Pages/Reservation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXJ2YXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Rooms.cshtml]
+[D:/hotel_final_project/Pages/Rooms.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/Shared/_Layout.cshtml]
+[D:/hotel_final_project/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/_ViewImports.cshtml]
+[D:/hotel_final_project/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/prueba final/hotel_final_project/Pages/_ViewStart.cshtml]
+[D:/hotel_final_project/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

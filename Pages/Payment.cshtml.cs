@@ -173,7 +173,7 @@ namespace HotelReservation.Pages
             }
 
             TempData["PaymentDone"] = "true";
-            return RedirectToPage("/Confirm");
+            return RedirectToPage("Confirm");
         }
     }
 }  

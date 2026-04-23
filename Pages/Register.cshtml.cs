@@ -20,12 +20,12 @@ namespace HotelReservation.Pages
 
         public class RegisterInput
         {
-            public string Nombre { get; set; }
-            public string Apellido { get; set; }
-            public int Edad { get; set; }
-            public string Celular { get; set; }
+            public string Name { get; set; }
+            public string LastName { get; set; }
+            public int Age { get; set; }
+            public string Telephone { get; set; }
             public string Email { get; set; }
-            public string Nacionalidad { get; set; }
+            public string Nationality { get; set; }
             public string Password { get; set; }
         }
 
@@ -41,21 +41,21 @@ namespace HotelReservation.Pages
 
             if (exist)
             {
-                ModelState.AddModelError("", "Este correo ya está registrado.");
+                ModelState.AddModelError("", "This email is already registered.");
                 return Page();
             }
 
             // Crear usuario con los campos reales
             var user = new User
             {
-                Nombre = Input.Nombre,
-                Apellido = Input.Apellido,
+                Name = Input.Name,
+                LastName = Input.LastName,
                 Email = Input.Email,
                 Password = Input.Password,
                 Role = "User", // Rol por defecto
-                Nacionalidad = Input.Nacionalidad,
-                Edad = Input.Edad,
-                Celular = Input.Celular
+                Nationality = Input.Nationality,
+                Age = Input.Age,
+                Telephone = Input.Telephone
             };
 
             _db.Users.Add(user);

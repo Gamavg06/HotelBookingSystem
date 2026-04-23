@@ -79,15 +79,15 @@ namespace HotelReservation.Migrations
                 columns: new[] { "Id", "Description", "Image", "Name", "PricePerNight" },
                 values: new object[,]
                 {
-                    { 1, "Cama doble, 20m².", "/images/room1.png", "Habitación Estándar", 340m },
-                    { 2, "Cama king, balcón.", "/images/room2.png", "Habitación Superior", 350m },
-                    { 3, "Sala, cama king, vistas.", "/images/room3.png", "Suite", 2500m },
-                    { 4, "Espaciosa, 2 camas.", "/images/room4.png", "Habitación Familiar", 500m }
+                    { 1, "Double Bed, 20m².", "/images/room1.png", "Standard Room", 340m },
+                    { 2, "King Bed, Balcony.", "/images/room2.png", "Superior Room", 350m },
+                    { 3, "Living room, King Bed, Views.", "/images/room3.png", "Suite", 2500m },
+                    { 4, "Spacious, 2 beds.", "/images/room4.png", "Family Room", 500m }
                 });
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "Apellido", "Celular", "Edad", "Email", "Nacionalidad", "Nombre", "Password", "Role" },
+                columns: new[] { "Id", "LastName", "telephone", "Age", "Email", "Nationality", "Name", "Password", "Role" },
                 values: new object[] { 1, "System", "2761095688", 30, "hotelbookingsystems@gmail.com", "MX", "Admin", "Admin", "Admin" });
 
             migrationBuilder.CreateIndex(

@@ -47,9 +47,14 @@ namespace HotelReservation.Migrations
                     b.Property<decimal>("Total")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.HasIndex("RoomId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reservations");
                 });
@@ -85,23 +90,23 @@ namespace HotelReservation.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Cama doble, 20m².",
+                            Description = "Double Bed, 20m².",
                             Image = "/images/room1.png",
-                            Name = "Habitación Estándar",
+                            Name = "Standard Room",
                             PricePerNight = 340m
                         },
                         new
                         {
                             Id = 2,
-                            Description = "Cama king, balcón.",
+                            Description = "King Bed, Balcony.",
                             Image = "/images/room2.png",
-                            Name = "Habitación Superior",
+                            Name = "Superior Room",
                             PricePerNight = 350m
                         },
                         new
                         {
                             Id = 3,
-                            Description = "Sala, cama king, vistas.",
+                            Description = "Living room, King Bed, Views.",
                             Image = "/images/room3.png",
                             Name = "Suite",
                             PricePerNight = 2500m
@@ -109,9 +114,9 @@ namespace HotelReservation.Migrations
                         new
                         {
                             Id = 4,
-                            Description = "Espaciosa, 2 camas.",
+                            Description = "Spacious, 2 beds.",
                             Image = "/images/room4.png",
-                            Name = "Habitación Familiar",
+                            Name = "Family Room",
                             PricePerNight = 500m
                         });
                 });
@@ -122,12 +127,12 @@ namespace HotelReservation.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Apellido")
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Celular")
+                    b.Property<string>("Telephone")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -139,11 +144,11 @@ namespace HotelReservation.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nacionalidad")
+                    b.Property<string>("Nationality")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
@@ -188,10 +193,23 @@ namespace HotelReservation.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("HotelReservation.Models.User", "User")
+                        .WithMany("Reservations")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Room");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("HotelReservation.Models.Room", b =>
+                {
+                    b.Navigation("Reservations");
+                });
+
+            modelBuilder.Entity("HotelReservation.Models.User", b =>
                 {
                     b.Navigation("Reservations");
                 });

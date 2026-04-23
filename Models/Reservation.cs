@@ -9,6 +9,10 @@ namespace HotelReservation.Models
         public int RoomId { get; set; }
         public Room Room { get; set; }
 
+        // Relación con User
+        public int UserId { get; set; }        // 👈 clave foránea
+        public User User { get; set; }         // 👈 navegación
+
         public string GuestName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
 

@@ -4,17 +4,17 @@
 
 <div class="container mt-5" style="max-width:800px">
     <div class="alert alert-success">
-        <h3>¡Reserva confirmada!</h3>
-        <p>Hemos procesado tu pago. Se ha enviado un correo con los detalles.</p>
+        <h3>Reservation Confirmed!</h3>
+        <p>Your payment has been processed. An email with the details has been sent.</p>
     </div>
 
     <div class="card p-3">
-        <h4>Resumen de la reserva</h4>
-        <p><strong>Habitación:</strong> @Model.Room?.Name</p>
-        <p><strong>Precio por noche:</strong> $@Model.Room?.PricePerNight</p>
-        <p><strong>Método de pago:</strong> @Model.PaymentMethod</p>
-        <p><strong>Titular tarjeta / PayPal:</strong> @Model.Titular</p>
+        <h4>Reservation Summary</h4>
+        <p><strong>Room:</strong> @Model.Room?.Name</p>
+        <p><strong>Price per night:</strong> $@Model.Room?.PricePerNight</p>
+        <p><strong>Payment Method:</strong> @Model.PaymentMethod</p>
+        <p><strong>Cardholder / PayPal:</strong> @Model.Titular</p>
     </div>
 
-    <a asp-page="/Index" class="btn btn-gold mt-4">Volver al inicio</a>
+    <a asp-page="/Index" class="btn btn-gold mt-4">Go to Home</a>
 </div>

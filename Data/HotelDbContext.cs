@@ -26,12 +26,12 @@ namespace HotelReservation.Data
                 .HasKey(u => u.Id);
 
             modelBuilder.Entity<User>()
-                .Property(u => u.Nombre)
+                .Property(u => u.Name)
                 .IsRequired()
                 .HasMaxLength(50);
 
             modelBuilder.Entity<User>()
-                .Property(u => u.Apellido)
+                .Property(u => u.LastName)
                 .IsRequired()
                 .HasMaxLength(50);
 
@@ -55,13 +55,13 @@ namespace HotelReservation.Data
                 new User
                 {
                     Id = 1,
-                    Nombre = "Admin",
-                    Apellido = "System",
+                    Name = "Admin",
+                    LastName = "System",
                     Email = "hotelbookingsystems@gmail.com",
                     Password = "Admin",
-                    Edad = 30,
-                    Celular = "2761095688",
-                    Nacionalidad = "MX",
+                    Age = 30,
+                    Telephone = "2761095688",
+                    Nationality = "MX",
                     Role = "Admin"
                 }
             );
@@ -85,10 +85,10 @@ namespace HotelReservation.Data
             // SEED DE HABITACIONES
             // -------------------------
             modelBuilder.Entity<Room>().HasData(
-                new Room { Id = 1, Name = "Habitación Estándar", Description = "Cama doble, 20m².", PricePerNight = 340, Image = "/images/room1.png" },
-                new Room { Id = 2, Name = "Habitación Superior", Description = "Cama king, balcón.", PricePerNight = 350, Image = "/images/room2.png" },
-                new Room { Id = 3, Name = "Suite", Description = "Sala, cama king, vistas.", PricePerNight = 2500, Image = "/images/room3.png" },
-                new Room { Id = 4, Name = "Habitación Familiar", Description = "Espaciosa, 2 camas.", PricePerNight = 500, Image = "/images/room4.png" }
+                new Room { Id = 1, Name = "Standard Room", Description = "Double Bed, 20m².", PricePerNight = 340, Image = "/images/room1.png" },
+                new Room { Id = 2, Name = "Superior Room", Description = "King Bed, Balcony.", PricePerNight = 350, Image = "/images/room2.png" },
+                new Room { Id = 3, Name = "Suite", Description = "Living room, King Bed, Views.", PricePerNight = 2500, Image = "/images/room3.png" },
+                new Room { Id = 4, Name = "Family Room", Description = "Spacious, 2 beds.", PricePerNight = 500, Image = "/images/room4.png" }
             );
 
             // -------------------------
@@ -106,11 +106,18 @@ namespace HotelReservation.Data
                 .Property(res => res.Email)
                 .IsRequired();
 
-            // Relación Room (1) → (N) Reservations - AHORA CORREGIDA
+            // Relación Room (1) → (N) Reservations
             modelBuilder.Entity<Reservation>()
-                .HasOne(res => res.Room)          // Usa la propiedad de navegación en Reservation
-                .WithMany(r => r.Reservations)    // Usa la colección de navegación en Room
-                .HasForeignKey(res => res.RoomId) // Usa la clave foránea real
+                .HasOne(res => res.Room)
+                .WithMany(r => r.Reservations)
+                .HasForeignKey(res => res.RoomId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Relación User (1) → (N) Reservations
+            modelBuilder.Entity<Reservation>()
+                .HasOne(res => res.User)
+                .WithMany(u => u.Reservations)
+                .HasForeignKey(res => res.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

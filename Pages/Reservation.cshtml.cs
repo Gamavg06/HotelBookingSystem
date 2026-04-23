@@ -1,20 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore; // ¡NUEVO! Necesario para FirstOrDefaultAsync
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using HotelReservation.Data;
 using HotelReservation.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace HotelReservation.Pages
 {
     public class ReservationModel : PageModel
     {
-        // CAMBIO 1: Reemplazar InMemoryStore por HotelDbContext
         private readonly HotelDbContext _context;
+        private readonly ILogger<ReservationModel> _logger;
 
-        // CAMBIO 2: Actualizar el constructor
-        public ReservationModel(HotelDbContext context)
+        public ReservationModel(HotelDbContext context, ILogger<ReservationModel> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public Room SelectedRoom { get; set; }
@@ -29,10 +31,8 @@ namespace HotelReservation.Pages
             public int Guests { get; set; }
         }
 
-        // CAMBIO 3: Hacer el método asíncrono
         public async Task<IActionResult> OnGetAsync(int roomId)
         {
-            // CAMBIO 4: Usar FirstOrDefaultAsync
             SelectedRoom = await _context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
 
             if (SelectedRoom == null)
@@ -43,24 +43,47 @@ namespace HotelReservation.Pages
             return Page();
         }
 
-        // CAMBIO 5: Hacer el método asíncrono
         public async Task<IActionResult> OnPostAsync(int roomId)
         {
-            // CAMBIO 6: Usar FirstOrDefaultAsync
-            SelectedRoom = await _context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
+            // Validación básica del modelo
+            if (Input == null)
+            {
+                ModelState.AddModelError("", "Invalid reservation data.");
+                return Page();
+            }
 
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            SelectedRoom = await _context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
             if (SelectedRoom == null)
             {
                 return RedirectToPage("/Rooms");
             }
 
-            // Guardar temporalmente en sesión la reservación
-            HttpContext.Session.SetString("RoomId", roomId.ToString());
-            HttpContext.Session.SetString("DateIn", Input.DateIn);
-            HttpContext.Session.SetString("DateOut", Input.DateOut);
-            HttpContext.Session.SetString("Guests", Input.Guests.ToString());
+            try
+            {
+                // Usar sesión (ya registrada en Program.cs)
+                HttpContext.Session.SetString("RoomId", roomId.ToString());
+                HttpContext.Session.SetString("DateIn", Input.DateIn ?? string.Empty);
+                HttpContext.Session.SetString("DateOut", Input.DateOut ?? string.Empty);
+                HttpContext.Session.SetString("Guests", Input.Guests.ToString());
 
-            return RedirectToPage("/Payment");
+                // Aquí podrías crear la entidad Reservation y guardarla si lo deseas
+                // var reservation = new Reservation { RoomId = roomId, ... };
+                // _context.Reservations.Add(reservation);
+                // await _context.SaveChangesAsync();
+
+                return RedirectToPage("/Payment");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error processing reservation for room {RoomId}", roomId);
+                ModelState.AddModelError("", "An error occurred while processing the reservation. Please try again.");
+                return Page();
+            }
         }
     }
 }

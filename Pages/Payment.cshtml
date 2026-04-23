@@ -13,30 +13,30 @@
     @if (TempData["EmailPreview"] != null)
     {
         <div class="alert alert-info">
-            <b>Preview de correo (no enviado, falta configuración):</b>
+            <b>Email preview (Not sent, configuration missing):</b>
             <div style="white-space:pre-wrap;">@TempData["EmailPreview"]</div>
         </div>
     }
 
     <form method="post" novalidate>
         <div class="mb-3">
-            <label class="form-label fw-bold">Método de pago</label>
+            <label class="form-label fw-bold">Payment Method</label>
             <select class="form-select" asp-for="Input.PaymentMethod" id="paymentSelect">
-                <option value="">-- Seleccione --</option>
-                <option value="tarjeta">Tarjeta de crédito / débito</option>
-                <option value="transferencia">Transferencia bancaria</option>
+                <option value="">-- Select --</option>
+                <option value="tarjeta">Credit / Debit Card</option>
+                <option value="transferencia">Bank Transfer</option>
                 <option value="paypal">PayPal</option>
             </select>
         </div>
 
         <div id="cardSection" class="p-3 border rounded mb-3 bg-light" style="display:none;">
-            <label>Nombre en tarjeta</label>
+            <label>Cardholder Name</label>
             <input asp-for="Input.CardName" class="form-control" />
-            <label class="mt-2">Número de tarjeta</label>
+            <label class="mt-2">Card Number</label>
             <input asp-for="Input.CardNumber" class="form-control" />
             <div class="row">
                 <div class="col">
-                    <label>Expiración</label>
+                    <label>Expiration</label>
                     <input asp-for="Input.ExpirationDate" class="form-control" />
                 </div>
                 <div class="col">
@@ -47,19 +47,19 @@
         </div>
 
         <div id="transferSection" class="p-3 border rounded mb-3 bg-light" style="display:none;">
-            <label>Banco</label>
+            <label>Bank</label>
             <input asp-for="Input.BankName" class="form-control" />
-            <label class="mt-2">Número de cuenta</label>
+            <label class="mt-2">Account Number</label>
             <input asp-for="Input.AccountNumber" class="form-control" />
         </div>
 
         <div id="paypalSection" class="p-3 border rounded mb-3 bg-light" style="display:none;">
-            <label>Correo PayPal</label>
+            <label>PayPal Email</label>
             <input asp-for="Input.PayPalEmail" class="form-control" />
         </div>
 
         <div class="text-center mt-3">
-            <button class="btn btn-gold btn-lg" type="submit">Confirmar Pago </button>
+            <button class="btn btn-gold btn-lg" type="submit">Confirm Payment</button>
         </div>
     </form>
 </div>
@@ -73,8 +73,8 @@
             const paypal = document.getElementById('paypalSection');
             function update(){
                 const v = select.value;
-                card.style.display = v === 'tarjeta' ? 'block' : 'none';
-                transfer.style.display = v === 'transferencia' ? 'block' : 'none';
+                card.style.display = v === 'card' ? 'block' : 'none';
+                transfer.style.display = v === 'transference' ? 'block' : 'none';
                 paypal.style.display = v === 'paypal' ? 'block' : 'none';
             }
             select.addEventListener('change', update);
