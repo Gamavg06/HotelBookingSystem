@@ -1,0 +1,39 @@
+@page
+@model HotelReservation.Pages.Admin.Reservations.CreateModel
+
+<h2>Nueva Reservación</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label>Nombre del Huésped</label>
+        <input asp-for="Reservation.GuestName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Email</label>
+        <input asp-for="Reservation.Email" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Habitación</label>
+        <select asp-for="Reservation.RoomId" class="form-control" asp-items="Model.RoomList"></select>
+    </div>
+
+    <div class="mb-3">
+        <label>Check In</label>
+        <input asp-for="Reservation.CheckIn" class="form-control" type="date" />
+    </div>
+
+    <div class="mb-3">
+        <label>Check Out</label>
+        <input asp-for="Reservation.CheckOut" class="form-control" type="date" />
+    </div>
+
+    <div class="mb-3">
+        <label>Total a pagar</label>
+        <input asp-for="Reservation.Total" class="form-control" />
+    </div>
+
+    <button class="btn btn-success">Crear</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,28 @@
+@page
+@model HotelReservation.Pages.Admin.Rooms.CreateModel
+
+<h2>Nueva Habitación</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input asp-for="Room.Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Descripción</label>
+        <textarea asp-for="Room.Description" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label>Precio por noche</label>
+        <input asp-for="Room.PricePerNight" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Ruta de imagen</label>
+        <input asp-for="Room.Image" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary">Guardar</button>
+</form>

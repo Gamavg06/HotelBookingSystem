@@ -1,0 +1,11 @@
+@page "{id}"
+@model HotelReservation.Pages.Admin.Rooms.DeleteModel
+
+<h2>Eliminar Habitación</h2>
+
+<p>¿Seguro que deseas eliminar la habitación <strong>@Model.Room.Name</strong>?</p>
+
+<form method="post">
+    <button class="btn btn-danger">Eliminar</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

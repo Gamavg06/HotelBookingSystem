@@ -1,0 +1,39 @@
+@page
+@model HotelReservation.Pages.Admin.Reservations.IndexModel
+
+<h2 class="mb-4">Gestión de Reservaciones</h2>
+
+<a asp-page="Create" class="btn btn-success mb-3">Nueva Reservación</a>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Cliente</th>
+            <th>Correo</th>
+            <th>Habitación</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th>Total</th>
+            <th>Pagado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model.Reservations)
+        {
+            <tr>
+                <td>@r.GuestName</td>
+                <td>@r.Email</td>
+                <td>@r.Room?.Name</td>
+                <td>@r.CheckIn.ToShortDateString()</td>
+                <td>@r.CheckOut.ToShortDateString()</td>
+                <td>$@r.Total</td>
+                <td>@(r.Paid ? "Sí" : "No")</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@r.Id" class="btn btn-sm btn-primary">Editar</a>
+                    <a asp-page="Delete" asp-route-id="@r.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,19 @@
+@page
+@model HotelReservation.Pages.Admin.PanelModel
+@{
+    ViewData["Title"] = "Panel de Administración";
+}
+
+<h2 class="mb-4">Panel de Administración</h2>
+
+<div class="list-group">
+    <a asp-page="/Admin/Rooms/Index" class="list-group-item list-group-item-action">
+        Administrar Habitaciones
+    </a>
+    <a asp-page="/Admin/Reservations/Index" class="list-group-item list-group-item-action">
+        Ver Reservaciones
+    </a>
+    <a asp-page="/Admin/Users/Index" class="list-group-item list-group-item-action">
+        Administrar Usuarios
+    </a>
+</div>
